@@ -16,6 +16,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
     //content inside window == scene;
 
     Button button;
+    private int staph;
 
     public static void main(String[] args) {
         launch(args); //method inside the application class. Sets up my program as a Javafx application.
@@ -43,7 +44,21 @@ public class Main extends Application implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         if(actionEvent.getSource()==button){
-            System.out.println("You clicked me!");
+            if(staph <= 5){
+                System.out.println("You clicked me!");
+                staph++;
+            } else if (staph < 10){
+                System.out.println("STAAAAAPH");
+                staph++;
+            } else {
+                System.out.println("OUCH YOU HURT MY DNA!");
+                staph++;
+
+                if (staph == 15){
+                    staph = 0;
+                    System.out.println("Rebooting service..");
+                }
+            }
         }
     }
 }
