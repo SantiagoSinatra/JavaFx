@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application implements EventHandler<ActionEvent> {
 
     //window == stage;
     //content inside window == scene;
@@ -27,6 +27,8 @@ public class Main extends Application {
 
         button = new Button("Click me"); //button with a text
 
+        button.setOnAction(this); //this listen the clicks.
+
         StackPane layout = new StackPane();
         layout.getChildren().add(button); //I added the button early created to the layout.
 
@@ -38,4 +40,10 @@ public class Main extends Application {
     }
 
 
+    @Override
+    public void handle(ActionEvent actionEvent) {
+        if(actionEvent.getSource()==button){
+            System.out.println("You clicked me!");
+        }
+    }
 }
